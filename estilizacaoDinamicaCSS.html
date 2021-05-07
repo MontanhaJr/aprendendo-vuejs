@@ -1,0 +1,86 @@
+<head>
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+    <style>body {background-color: rgb(39, 37, 37);}</style>
+    <style>
+        .caixa {
+            width: 200px;
+            height: 200px;
+            display: inline-block;
+            margin-right: 10px;
+            background-color: chartreuse;
+        }
+    
+        .azul {
+            background-color: lightblue;
+        }
+        .coral {
+            background-color: coral;
+        }
+        .rosa {
+            background-color: lightpink;
+        }
+        .circulo {
+            border-radius: 100%;
+        }
+    
+    </style>
+</head>
+
+<body >
+    <div id="app">
+        <div
+            class="caixa"
+            :class="{azul: aplicarClasse}"
+            @click="aplicarClasse = !aplicarClasse">
+        </div>
+        <div 
+            class="caixa"
+            :class="classesCSS"
+            @click="aplicarClasse = !aplicarClasse">
+
+        </div>
+        
+        <br><br>
+        <div 
+            class="caixa"
+            :class="nomeDaClasse">
+        </div>
+        <div>
+            <br>
+            <input v-model="nomeDaClasse" placeholder="Nome da classe CSS"><br>
+            <button @click="trocarClasse('azul')">Azul</button><br>
+            <button @click="trocarClasse('coral')">Coral</button><br>
+            <button @click="trocarClasse('rosa')">Rosa</button><br>
+            <button @click="trocarClasse('verde')">Verde</button><br>
+            <button @click="trocarClasse('circulo')">Círculo</button><br>
+        </div>
+        
+    </div>
+
+    <script type="text/javascript">
+
+        new Vue({
+            el: '#app',
+            data: {
+                aplicarClasse: false,
+                nomeDaClasse: ''
+            },
+            computed: {
+                classesCSS: function() {
+                    return {
+                        azul: this.aplicarClasse,
+                        circulo: this.aplicarClasse,
+                        verde: !this.aplicarClasse
+                    };
+                }
+            },
+            methods: {
+                trocarClasse: function(cor) {
+                    
+                    this.nomeDaClasse = cor != 'circulo' ? cor : this.nomeDaClasse + ' ' + cor;
+                }
+            }
+        });
+
+    </script>
+</body>

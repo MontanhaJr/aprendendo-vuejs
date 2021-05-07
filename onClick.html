@@ -1,0 +1,33 @@
+<head>
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button v-on:click="incrementar">Click</button>
+        <p>Botão clicado <span style="color: blue;"> {{ cliques }} </span> vezes</p>
+        <p v-html="trocarCor"></p>
+    </div>
+
+    <script type="text/javascript">
+
+        new Vue({
+            el: '#app',
+            data: {
+                cliques: 0
+            },
+            methods: {
+                incrementar: function() {
+                    this.cliques++;
+                }
+            },
+            computed: {
+                trocarCor: function() {
+                    return 'Botão clicado <span style="color: red;"> '+ this.cliques +' </span>vezes'
+                }
+            }
+
+        });
+
+    </script>
+</body>

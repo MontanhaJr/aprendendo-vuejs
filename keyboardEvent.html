@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<head>
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+</head>
+
+<body >
+    <div id="app">
+        
+        <input v-on:keyup="onKey" placeholder="Qualquer tecla">
+        <br>
+        <input v-on:keyup.enter="onKey" placeholder="Tecla enter">
+        <br>
+        <input v-on:keyup.enter.esc="onKey" placeholder="Tecla enter ou escape">
+        <br>
+        <input v-on:keyup.ctrl.c.exact="onKey" placeholder="Somente CTRL + C">
+        
+        <br><br><hr><br>
+        <button v-on:click.left="onClick">Botão Esquerdo</button>
+        <br>
+        <button v-on:click.middle="onClick">Botão Scroll</button>
+        <br>
+        <button v-on:click.right="onClick">Botão Direito</button>
+        <br>
+        <button v-on:click.right.prevent="onClick">Botão Direito Sem Menu</button>
+
+        
+    </div>
+
+    <script type="text/javascript">
+
+        new Vue({
+            el: '#app',
+            methods: {
+                onKey: function(event) {
+                    console.log('Tecla ' + event.key + ' pressionada!');
+                },
+                onClick: function(event) {
+                    console.log('Botão ' + event.button + ' pressionado!');
+                }
+            }
+
+        });
+
+    </script>
+</body>
