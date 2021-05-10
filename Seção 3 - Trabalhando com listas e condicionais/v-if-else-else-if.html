@@ -1,0 +1,51 @@
+<head>
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+</head>
+
+<body >
+    <div id="app">
+        
+        <p v-if="mostrar">Olá VueJS!</p>
+        <p v-else>Até Logo VueJS</p>
+        <button @click="mostrar = !mostrar">Alternar</button>
+        <br><br>
+
+        <li>Olá VueJS</li>
+        <li>Item 1</li>
+        <template v-if="mostrar">
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </template>
+        <br>
+
+        <p v-if="nota === 'A'">Parabéns, você tirou um "A"</p>
+        <p v-else-if="nota === 'B'">Você tirou um "B", mas pode melhorar!</p>
+        <p v-else-if="nota === 'C'">Você precisa melhorar, estude mais. Sua nota: "C"</p>
+        <p v-else>Nota ainda não publicada</p>
+        <input v-model="nota" placeholder="Nota">
+        <br><br><br>
+
+        <button @click="login = !login">Toggle</button>
+        <template v-if="login">
+            <label>Login:</label>
+            <input placeholder="Login" key="campo-login">
+        </template>
+        <template v-else>
+            <label>Email:</label>
+            <input placeholder="Email" key="campo-email">
+        </template>
+    </div>
+
+    <script type="text/javascript">
+
+        new Vue({
+            el: '#app',
+            data: {
+                mostrar: true,
+                nota: '',
+                login: true
+            }
+        });
+
+    </script>
+</body>
