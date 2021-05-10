@@ -1,0 +1,31 @@
+<head>
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+</head>
+
+<body >
+    <div id="app">
+        <h1>Números</h1>
+        <ul>
+            <li v-for="valor in 30">
+                {{texto}}: {{valor}}
+            </li>
+        </ul>
+        <ul>
+            <li v-for="(valor, indice) in 30">
+                {{indice}}: {{valor}}
+            </li>
+        </ul>
+    </div>
+    
+
+    <script type="text/javascript">
+
+        new Vue({
+            el: '#app',
+            data: {
+                texto: 'Valor'
+            }
+        });
+
+    </script>
+</body>
